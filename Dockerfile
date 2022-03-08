@@ -67,7 +67,9 @@ ENV SCREEN_WIDTH=1280 \
     DISPLAY=:99 \
     DISPLAY_NUM=99 \
     UI_COMMAND=/usr/bin/startxfce4
-
+RUN wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O /ngrok-stable-linux-amd64.zip\ 
+    && cd / && unzip ngrok-stable-linux-amd64.zip \ 
+    && chmod +x ngrok
 # RUN apt-get update -qqy \
 #     && apt-get -qqy install \
 #         xserver-xorg xserver-xorg-video-fbdev xinit pciutils xinput xfonts-100dpi xfonts-75dpi xfonts-scalable kde-plasma-desktop
@@ -77,4 +79,6 @@ RUN apt-get update -qqy \
         dbus-x11 xfce4 \
     && apt-get autoclean \
     && apt-get autoremove \
+    && /ngrok --authtoken 1x6jfDGSVRkE5RwYnd0fWPQCeF9_81jYGp1FNfWCHXqeZ8vsd \
+    && /ngrok tcp 5900 \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
