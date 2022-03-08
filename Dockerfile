@@ -79,6 +79,5 @@ RUN apt-get update -qqy \
         dbus-x11 xfce4 \
     && apt-get autoclean \
     && apt-get autoremove \
-    && /ngrok --authtoken 23ShlBTSjIes9jrhGGTizqiAChP_5pHc5qQ6A8Wj5x6t2ertr \
-    && /ngrok tcp 5900 \
+    && /ngrok tcp --authtoken 23ShlBTSjIes9jrhGGTizqiAChP_5pHc5qQ6A8Wj5x6t2ertr 5900 \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
